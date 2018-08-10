@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="icon" href="https://edtssl.eagledream-hosting.com/wp-content/uploads/2015/02/edt_fav_2.png"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--    
+    <style>
+		table, th, td
+		{
+    		border: 1px solid blue;
+    		border-collapse: collapse;
+		}
+		th, td
+		{
+    		padding: 5px;
+		    text-align: right;
+		}
+	</style>
+-->    
+</head>
+	<body>
+		<title>EDT - Commissions Report</title>
+		<center>
+
+		<div id="under" style="left: 0px; top: 0px; position: relative">
+		<img src="https://cdn-images.9cloud.us/8/dreamy-dre_245154186.jpg" width="50%" height="50%">
+		</div>
+
+		<div id="top" style="left: 250px; top: 25px; position: absolute">
+		<img src="https://d3rdz1nqt7l291.cloudfront.net/wp-content/uploads/2015/02/edt_logo_white_2-e1454088284511.png?x59865" width="50%" height="50%">
+		</div> 
+		
+		<span>
+		<style>#fancy-title-3 {font-family: "Open Sans"}</style>
+		<h2 id="fancy-title-4" class="mk-fancy-title align-left simple-style eagleHeader color-single">
+			COMMISSIONS REPORT
+		</h2>
+		</span>
+			<form method="POST" action="http://commissions.eagledream.com/EDTCommissionsReport/GetReport" enctype="multipart/form-data" >
+			<select id="report" name="comType">
+<!--				<option value="Alert Logic">Alert Logic</option>	-->
+				<option value="Calero">Calero</option>
+<!-- 				<option value="Century Link">Century Link</option>		 -->
+				<option value="CNSG">CNSG</option>	
+				<option value="Intelisys">Intelisys</option>
+<!--				<option value="Verizon">Verizon</option>		-->
+<!--  				<option value="Windstream">Windstream</option>		-->
+ 				<option value="Wireless Analytics">Wireless Analytics</option>
+			</select>
+
+			<br><br>
+    			<input type="file" name="file" id="file">
+    			<br><br>
+    			<input type="hidden" name="destination"/>
+    			<input type="submit" value="Submit" name="upload" id="upload" />
+			</form>
+			<br>
+      			<table border="0" cellpadding="10">
+      			<tr>
+      			<td align="right">
+      			    <font color="red">
+		            Check:
+		            </font>
+		        </td>
+		        <td>
+		        	<font color="red">
+		            $ <input name="check" id="check" type="number" oninput="Calculate()">
+		            </font>
+		        </td>
+		        </tr>
+		        <tr>
+		        <td align="right">
+		        	<font color="blue">
+		            EDT Commission:
+		            </font>
+		        </td>
+		        <td id="edt">
+		        </td>
+		        </tr>
+		        <tr>
+		        <td align="right">
+		        	<font color="green">
+		            Sales Commission:
+		            </font>
+		        </td>
+		        <td id="sales">
+		        </td>
+		        </tr>
+	            </table>
+        	</form>    	
+		</center>
+	</body>
+		<script>
+		function Calculate()
+		{
+			var edt = document.getElementById('check').value * .82;
+			var sales = document.getElementById('check').value * .18;
+
+			document.getElementById('edt').innerHTML = "$ <font color=blue><b>" + edt.toFixed(2) + "</b><font>";
+			document.getElementById('sales').innerHTML = "$ <font color=green><b>" + sales.toFixed(2) + "</b><font>";
+		}
+	</script>
+</HTML>
